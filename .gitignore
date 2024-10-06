@@ -1,0 +1,27 @@
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node.js (for Angular frontend in kanban-frontend/)
+kanban-frontend/node_modules/
+kanban-frontend/dist/
+kanban-frontend/tmp/
+kanban-frontend/.angular/cache/
+kanban-frontend/.angular-build/
+kanban-frontend/.angular-builds/
+
+# Angular specific
+kanban-frontend/.angular/
+
+# Environment variables
+kanban-frontend/.env
+kanban-frontend/.env.local
+kanban-frontend/.env.*.local
