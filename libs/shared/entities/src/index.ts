@@ -1,1 +1,1 @@
-export * from './lib/Board.entity';
+export * from './Board.entity';
