@@ -22,22 +22,46 @@ model board {
 
   task_sequence task_sequence?
 
-  task task[]
+  task   task[]
+  column column[]
 }
 
-model task_sequence {
-  board       board  @relation(fields: [board_key], references: [key])
-  board_key   String @id
-  last_number Int    @default(0)
+model column {
+  name         String
+  position     Float    @db.DoublePrecision
+  status_color String?  @db.VarChar(7)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now()) @updatedAt
+
+  board     board  @relation(fields: [board_key], references: [key], onDelete: Cascade)
+  board_key String
+
+  task task[]
+
+  @@id([board_key, name], map: "id")
+  @@index([board_key, position])
 }
 
 model task {
   id          String   @id @default("")
   name        String
   description String?
+  position    Float    @db.DoublePrecision
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now()) @updatedAt
 
   board     board  @relation(fields: [board_key], references: [key])
   board_key String
+
+  column           column @relation(fields: [column_board_key, column_name], references: [board_key, name])
+  column_board_key String
+  column_name      String
+
+  @@index([column_board_key, column_name, position])
+}
+
+model task_sequence {
+  board       board  @relation(fields: [board_key], references: [key])
+  board_key   String @id
+  last_number Int    @default(0)
 }
