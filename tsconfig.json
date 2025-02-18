@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@kanban/prisma": ["libs/prisma/index.ts"],
+      "@kanban/prisma": ["libs/prisma/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
