@@ -1,0 +1,9 @@
+{
+  "name": "dto-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dto-core/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project dto-core --web",
+  "targets": {}
+}

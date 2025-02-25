@@ -1,12 +1,9 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@kanban/prisma';
-import { CreateColumnDto } from './dto/create-column.dto';
-import { UpdateColumnDto } from './dto/update-column.dto';
+import { CreateColumnDto, UpdateColumnDto } from '@kanban/dto-api';
 
 @Injectable()
 export class ColumnsService {
-  private readonly logger = new Logger(ColumnsService.name);
-
   constructor(private readonly prisma: PrismaService) {}
 
   async create(boardKey: string, column: CreateColumnDto) {

@@ -1,7 +1,7 @@
-import { column } from '@prisma/client';
 import { ApiProperty } from '@nestjs/swagger';
+import { IColumnDto } from '@kanban/dto-core';
 
-export class ColumnEntity implements column {
+export class ColumnDto implements IColumnDto {
   @ApiProperty()
   name: string;
 

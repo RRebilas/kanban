@@ -1,11 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ColumnsService } from './columns.service';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateColumnDto } from './dto/create-column.dto';
-import { ColumnEntity } from './entities/column.entity';
-import { UpdateColumnDto } from './dto/update-column.dto';
+import { ColumnDto, CreateColumnDto, UpdateColumnDto } from '@kanban/dto-api';
 
-@Controller(':boardKey/columns')
+@Controller('boards/:boardKey/columns')
 @ApiTags('columns')
 export class ColumnsController {
   constructor(private columnsService: ColumnsService) {}
@@ -18,13 +16,13 @@ export class ColumnsController {
   }
 
   @Get()
-  @ApiResponse({ type: Array<ColumnEntity> })
+  @ApiResponse({ type: Array<ColumnDto> })
   findAll(@Param('boardKey') boardKey: string) {
     return this.columnsService.findAll(boardKey);
   }
 
   @Get(':columnName')
-  @ApiResponse({ type: ColumnEntity })
+  @ApiResponse({ type: ColumnDto })
   findOne(@Param() { boardKey, columnName }: { boardKey: string; columnName: string }) {
     return this.columnsService.findOne(boardKey, columnName);
   }

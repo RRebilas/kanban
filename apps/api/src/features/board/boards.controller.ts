@@ -1,9 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { BoardsService } from './boards.service';
-import { CreateBoardDto } from './dto/create-board.dto';
-import { UpdateBoardDto } from './dto/update-board.dto';
+import { BoardDto, CreateBoardDto, UpdateBoardDto } from '@kanban/dto-api';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { BoardEntity } from './entities/board.entity';
 
 @Controller('boards')
 @ApiTags('boards')
@@ -16,13 +14,13 @@ export class BoardsController {
   }
 
   @Get()
-  @ApiResponse({ type: Array<BoardEntity> })
+  @ApiResponse({ type: Array<BoardDto> })
   findAll() {
     return this.boardService.findAll();
   }
 
   @Get(':key')
-  @ApiResponse({ type: BoardEntity })
+  @ApiResponse({ type: BoardDto })
   findOne(@Param('key') key: string) {
     return this.boardService.findOne(key);
   }

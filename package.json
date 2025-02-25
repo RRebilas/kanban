@@ -6,7 +6,7 @@
     "start": "nx run-many --targets=serve,dev --projects=api,client"
   },
   "prisma": {
-    "schema": "./libs/prisma/schema.prisma"
+    "schema": "./libs/prisma/src/schema.prisma"
   },
   "private": true,
   "dependencies": {

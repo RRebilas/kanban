@@ -1,7 +1,7 @@
-import { board } from '@prisma/client';
 import { ApiProperty } from '@nestjs/swagger';
+import { IBoardDto } from '@kanban/dto-core';
 
-export class BoardEntity implements board {
+export class BoardDto implements IBoardDto {
   @ApiProperty({ uniqueItems: true })
   key: string;
 

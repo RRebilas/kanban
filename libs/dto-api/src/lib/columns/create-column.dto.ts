@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { ICreateColumnDto } from '@kanban/dto-core';
 
-export class CreateColumnDto {
+export class CreateColumnDto implements ICreateColumnDto {
   @ApiProperty()
   name: string;
 
