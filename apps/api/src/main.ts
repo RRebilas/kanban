@@ -17,11 +17,12 @@ async function bootstrap() {
     .setVersion('0.1')
     .build();
 
+  const globalPrefix = 'api';
+  app.setGlobalPrefix(globalPrefix);
+
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('swagger', app, document);
 
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 4000;
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { UpdateBoardDto } from './dto/update-board.dto';
@@ -16,12 +16,13 @@ export class BoardsController {
   }
 
   @Get()
-  @ApiResponse({ type: BoardEntity })
+  @ApiResponse({ type: Array<BoardEntity> })
   findAll() {
     return this.boardService.findAll();
   }
 
   @Get(':key')
+  @ApiResponse({ type: BoardEntity })
   findOne(@Param('key') key: string) {
     return this.boardService.findOne(key);
   }

@@ -14,32 +14,32 @@ datasource db {
 }
 
 model board {
-  key         String   @unique @db.VarChar(10)
+  key         String   @id @unique @db.VarChar(10)
   name        String
   description String?
-  created_at  DateTime @default(now())
-  updated_at  DateTime @default(now()) @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
 
-  task_sequence task_sequence?
+  taskSequence task_sequence?
 
   task   task[]
   column column[]
 }
 
 model column {
-  name         String
-  position     Float    @db.DoublePrecision
-  status_color String?  @db.VarChar(7)
-  created_at   DateTime @default(now())
-  updated_at   DateTime @default(now()) @updatedAt
+  name        String
+  position    Float    @db.DoublePrecision
+  statusColor String?  @db.VarChar(7)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
 
-  board     board  @relation(fields: [board_key], references: [key], onDelete: Cascade)
-  board_key String
+  board    board  @relation(fields: [boardKey], references: [key], onDelete: Cascade)
+  boardKey String
 
   task task[]
 
-  @@id([board_key, name], map: "id")
-  @@index([board_key, position])
+  @@id([boardKey, name], map: "id")
+  @@index([boardKey, position])
 }
 
 model task {
@@ -47,21 +47,21 @@ model task {
   name        String
   description String?
   position    Float    @db.DoublePrecision
-  created_at  DateTime @default(now())
-  updated_at  DateTime @default(now()) @updatedAt
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
 
-  board     board  @relation(fields: [board_key], references: [key])
-  board_key String
+  board    board  @relation(fields: [boardKey], references: [key])
+  boardKey String @map("board_key")
 
-  column           column @relation(fields: [column_board_key, column_name], references: [board_key, name])
-  column_board_key String
-  column_name      String
+  column         column @relation(fields: [columnBoardKey, columnName], references: [boardKey, name])
+  columnBoardKey String
+  columnName     String @map("column_name")
 
-  @@index([column_board_key, column_name, position])
+  @@index([columnBoardKey, columnName, position])
 }
 
 model task_sequence {
-  board       board  @relation(fields: [board_key], references: [key])
-  board_key   String @id
-  last_number Int    @default(0)
+  board      board  @relation(fields: [boardKey], references: [key])
+  boardKey   String @id @map("board_key")
+  lastNumber Int    @default(0) @map("last_number")
 }
