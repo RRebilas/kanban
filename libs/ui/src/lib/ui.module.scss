@@ -1,0 +1,15 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+@mixin test {
+  color: red;
+}
+
+.container {
+  @include test;
+}
