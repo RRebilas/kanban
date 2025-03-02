@@ -13,11 +13,11 @@
   --red-hover: #ff9898;
 }
 
-[app-theme='light'] {
+[app-theme='light'], body {
   --primary: var(--main-purple);
   --primary--hover: var(--main-purple-hover);
-  --secondary: rgba(var(--main-puple), 0.1);
-  --secondary-hover: rgba(var(--main-puple), 0.25);
+  --secondary: rgba(var(--main-purple), 0.1);
+  --secondary-hover: rgba(var(--main-purple), 0.25);
   --destructive: var(--red);
   --destructive-hover: var(--red-hover);
 
@@ -32,7 +32,7 @@
   --primary: var(--main-purple);
   --primary--hover: var(--main-purple-hover);
   --secondary: var(--white);
-  --secondary-hover: rgba(var(--main-puple), 0.25);
+  --secondary-hover: rgba(var(--main-purple), 0.25);
   --destructive: var(--red);
   --destructive-hover: var(--red-hover);
 

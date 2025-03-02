@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@kanban/ui": "file:libs/ui",
     "@nestjs/cli": "^11.0.4",
     "@nestjs/common": "^11.0.10",
     "@nestjs/core": "^11.0.10",

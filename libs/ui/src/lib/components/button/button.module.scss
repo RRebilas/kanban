@@ -1,0 +1,20 @@
+@use '../../styles/typography';
+
+.button {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  border-radius: 20px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.small {
+  @extend .text-body-l;
+  height: 40px;
+}
+
+.large {
+  @extend .text-heading-m;
+  height: 48px;
+}

@@ -1,0 +1,36 @@
+@mixin typography($font-size, $font-weight, $line-height, $letter-spacing: 0) {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: #{calc-px-to-rems($font-size)}rem;
+  font-weight: #{$font-weight};
+  line-height: #{calc-px-to-rems($line-height)}rem;
+  letter-spacing: #{calc-px-to-rems($letter-spacing)};
+}
+
+@function calc-px-to-rems($value) {
+  @return calc($value / 16);
+}
+
+.text-heading-xl {
+  @include typography(24, bold, 30);
+}
+
+.text-heading-l {
+  @include typography(18, bold, 23);
+}
+
+.text-heading-m {
+  @include typography(15, bold, 19);
+}
+
+.text-heading-s {
+  @include typography(12, bold, 15, 2.4);
+}
+
+.text-body-l {
+  @include typography(13, medium, 23);
+}
+
+.text-body-m {
+  @include typography(12, bold, 15);
+}

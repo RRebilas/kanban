@@ -1,5 +1,9 @@
-import { Ui } from '@kanban/ui';
+import { Button } from '@kanban/ui';
 
 export default function Index() {
-  return <Ui name={'Refix'} />;
+  return (
+    <>
+      <Button type={'button'}>+ Add new column</Button>
+    </>
+  );
 }
