@@ -1,9 +1,11 @@
-import styles from './ui.module.scss';
+import { Button } from './components/button';
 
-export function Ui({ name }: { name: string }) {
+export function Ui() {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome {name}!</h1>
+    <div className={'flex justify-start content-start gap-2 p-6'}>
+      <Button type={'button'} color={'destructive'}>
+        Content
+      </Button>
     </div>
   );
 }

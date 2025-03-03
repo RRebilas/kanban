@@ -1,0 +1,7 @@
+@function rgba-from-hex($hex, $opacity) {
+  @return rgba(red($hex), green($hex), blue($hex), $opacity);
+}
+
+@function calc-px-to-rems($value) {
+  @return calc($value / 16);
+}

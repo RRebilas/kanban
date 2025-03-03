@@ -1,3 +1,5 @@
+@use 'utilities' as *;
+
 @mixin typography($font-size, $font-weight, $line-height, $letter-spacing: 0) {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
@@ -5,10 +7,6 @@
   font-weight: #{$font-weight};
   line-height: #{calc-px-to-rems($line-height)}rem;
   letter-spacing: #{calc-px-to-rems($letter-spacing)};
-}
-
-@function calc-px-to-rems($value) {
-  @return calc($value / 16);
 }
 
 .text-heading-xl {

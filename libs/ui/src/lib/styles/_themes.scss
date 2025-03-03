@@ -1,23 +1,38 @@
+@use 'utilities' as *;
+
+$main-purple: #635fc7;
+$main-purple-hover: #a8a4ff;
+$black: #000112;
+$very-dark-grey: #20212c;
+$dark-grey: #2b2c37;
+$lines-dark: #3e3f4e;
+$medium-grey: #828fa3;
+$lines-light: #e3ebfa;
+$light-grey: #f4f7fd;
+$white: #ffffff;
+$red: #ea5555;
+$red-hover: #ff9898;
+
 :root {
-  --main-purple: #635fc7;
-  --main-purple-hover: #a8a4ff;
-  --black: #000112;
-  --very-dark-grey: #20212c;
-  --dark-grey: #2b2c37;
-  --lines-dark: #3e3ef4e;
-  --medium-grey: #828fa3;
-  --lines-light: #e3ebfa;
-  --light-grey: #f4f7fd;
-  --white: #ffffff;
-  --red: #ea5555;
-  --red-hover: #ff9898;
+  --main-purple: #{$main-purple};
+  --main-purple-hover: #{$main-purple-hover};
+  --black: #{$black};
+  --very-dark-grey: #{$very-dark-grey};
+  --dark-grey: #{$dark-grey};
+  --lines-dark: #{$lines-dark};
+  --medium-grey: #{$medium-grey};
+  --lines-light: #{$lines-light};
+  --light-grey: #{$light-grey};
+  --white: #{$white};
+  --red: #{$red};
+  --red-hover: #{$red-hover};
 }
 
 [app-theme='light'], body {
   --primary: var(--main-purple);
-  --primary--hover: var(--main-purple-hover);
-  --secondary: rgba(var(--main-purple), 0.1);
-  --secondary-hover: rgba(var(--main-purple), 0.25);
+  --primary-hover: var(--main-purple-hover);
+  --secondary: #{rgba($main-purple, 0.1)};
+  --secondary-hover: #{rgba($main-purple, 0.25)};
   --destructive: var(--red);
   --destructive-hover: var(--red-hover);
 
@@ -32,7 +47,7 @@
   --primary: var(--main-purple);
   --primary--hover: var(--main-purple-hover);
   --secondary: var(--white);
-  --secondary-hover: rgba(var(--main-purple), 0.25);
+  --secondary-hover: var(--white);
   --destructive: var(--red);
   --destructive-hover: var(--red-hover);
 

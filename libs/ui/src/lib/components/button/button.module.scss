@@ -1,13 +1,17 @@
 @use '../../styles/typography';
 
 .button {
-  background-color: var(--primary);
-  color: var(--primary-text);
   border-radius: 20px;
 
   padding-left: 8px;
   padding-right: 8px;
+
+  &:disabled {
+    opacity: 0.8;
+  }
 }
+
+// Sizes
 
 .small {
   @extend .text-body-l;
@@ -17,4 +21,33 @@
 .large {
   @extend .text-heading-m;
   height: 48px;
+}
+
+// Variants
+
+.primary {
+  background-color: var(--primary);
+  color: var(--primary-text);
+
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
+
+.secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+
+  &:hover {
+    background-color: var(--secondary-hover);
+  }
+}
+
+.destructive {
+  background-color: var(--destructive);
+  color: var(--primary-text);
+
+  &:hover {
+    background-color: var(--destructive-hover);
+  }
 }
