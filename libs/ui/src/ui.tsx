@@ -1,4 +1,5 @@
 import { Button } from './components/button';
+import { TextField } from './components/text-field';
 
 export function Ui() {
   return (
@@ -6,6 +7,9 @@ export function Ui() {
       <Button type={'button'} color={'destructive'}>
         Content
       </Button>
+
+      <TextField type={'text'} placeholder={'Enter task name'}></TextField>
+      <TextField type={'text'} placeholder={'Enter task name'}></TextField>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+@function rgba-from-hex($hex, $opacity) {
+  @return rgba(red($hex), green($hex), blue($hex), $opacity);
+}
+
+@function calc-px-to-rems($value) {
+  @return calc($value / 16);
+}
+
+@mixin line-clamp($max-lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $max-lines;
+  line-clamp: $max-lines;
+  -webkit-box-orient: vertical;
+}

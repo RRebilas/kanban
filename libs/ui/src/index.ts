@@ -1,2 +1,3 @@
-export * from './lib/ui';
-export * from './lib/components/button';
+export * from './ui';
+export * from './components/button';
+export * from './components/text-field';

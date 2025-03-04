@@ -1,0 +1,39 @@
+@use '@kanban/ui/src/styles/colors' as *;
+@use '@kanban/ui/src/styles/typography' as *;
+@use '@kanban/ui/src/styles/utilities' as *;
+
+.text-field {
+  height: 100%;
+  min-height: 2.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  gap: .5rem;
+
+  border: 2px solid rgba($medium-grey, 0.25);
+  border-radius: 4px;
+
+  &:has(input:focus) {
+    border-color: $main-purple;
+  }
+
+  input {
+    outline: none;
+    width: 100%;
+
+    &.invalid {
+      max-width: 60%;
+    }
+  }
+
+  span {
+    @extend .text-body-l;
+    @include line-clamp(2);
+    align-content: center;
+    max-width: 40%;
+    line-height: 0.8125rem;
+
+    color: $red;
+  }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import * as React from 'react';
 import styles from './button.module.scss';
 import { makeClasses } from '../../utils/css-classes';
 
