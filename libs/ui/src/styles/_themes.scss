@@ -27,13 +27,14 @@
   --base-text: var(--medium-grey);
   --primary-text: var(--white);
   --secondary-text: var(--main-purple);
+  --title-text: var(--black);
 
   --background: var(--light-grey);
 }
 
 [app-theme='dark'] {
   --primary: var(--main-purple);
-  --primary--hover: var(--main-purple-hover);
+  --primary-hover: var(--main-purple-hover);
   --secondary: var(--white);
   --secondary-hover: var(--white);
   --destructive: var(--red);
@@ -42,6 +43,7 @@
   --base-text: var(--medium-grey);
   --primary-text: var(--white);
   --secondary-text: var(--main-purple);
+  --title-text: var(--white);
 
   --background: var(--very-dark-grey);
 }
