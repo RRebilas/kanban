@@ -1,19 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import { RegisterOptions, useFormContext } from 'react-hook-form';
 
 import styles from './text-field.module.scss';
+import { ComponentProps } from 'react';
 
 type TextFieldProps = { name: string; type: 'text' | 'password' | 'email'; options?: RegisterOptions };
 
-const TextField = ({ name, options, ...props }: React.ComponentProps<'input'> & TextFieldProps) => {
+const TextField = ({ name, options, ...props }: ComponentProps<'input'> & TextFieldProps) => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-
-  console.log(options);
 
   return (
     <div className={styles['text-field']}>
