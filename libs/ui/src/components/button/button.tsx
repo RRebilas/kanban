@@ -6,13 +6,13 @@ import { makeClasses } from '../../utils/css-classes';
 
 export type ButtonProps = {
   size?: 'small' | 'large';
-  color: 'primary' | 'secondary' | 'destructive';
+  color?: 'primary' | 'secondary' | 'destructive';
 };
 
 const Button = ({
   className = '',
   size = 'large',
-  color,
+  color = 'primary',
   children,
   ...props
 }: React.ComponentProps<'button'> & ButtonProps) => {

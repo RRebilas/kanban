@@ -28,7 +28,7 @@
   }
 
   &:has(.error-container) {
-    border-color: $red;
+    border-color: var(--destructive);
     input {
       padding-right: 40%;
     }
@@ -43,6 +43,6 @@
     right: 0;
     max-width: 40%;
 
-    color: $red;
+    color: var(--destructive);
   }
 }

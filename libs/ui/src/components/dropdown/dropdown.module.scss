@@ -1,0 +1,52 @@
+@use '@kanban/ui/src/styles/typography' as *;
+@use '@kanban/ui/src/styles/colors' as *;
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-label {
+  @extend .text-body-m;
+  color: var(--medium-grey);
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 2px solid rgba($medium-grey, 0.25);
+  border-radius: 4px;
+
+  &:has(:is(select):open) {
+    background: red;
+  }
+}
+
+.dropdown-select {
+  @extend .text-body-l;
+
+  padding: 0.5rem 1rem;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.error-container {
+  @extend .text-body-m;
+  color: var(--destructive);
+}
