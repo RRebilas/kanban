@@ -3,8 +3,6 @@
 import { RegisterOptions, useFormContext } from 'react-hook-form';
 import { Children, ComponentProps, isValidElement, PropsWithChildren } from 'react';
 
-import ArrowDown from '@kanban/ui/src/assets/arrow-down.svg';
-
 import styles from './dropdown.module.scss';
 
 export type DropdownProps = {
@@ -24,27 +22,33 @@ export const Dropdown = ({
     (child) => isValidElement(child) && (child.type === 'option' || child.type === Option)
   );
 
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  const formContext = useFormContext();
+
+  const register = formContext?.register;
+  const errors = formContext?.formState?.errors;
 
   return (
     <div className={styles['dropdown']}>
       {label && (
-        <label htmlFor={'select'} className={styles['label']}>
+        <label htmlFor={name} className={styles['select']}>
           {label}
         </label>
       )}
-      <div className={styles['dropdown-wrapper']}>
-        <select className={styles['dropdown-select']} {...props} {...register(name, { ...registerOptions })}>
+      <div className={styles['select-wrapper']}>
+        <select
+          id={name}
+          {...props}
+          {...(register ? register(name, { ...registerOptions }) : {})}
+        >
           {options}
         </select>
-        <span className={styles['dropdown-arrow']}>
-          <ArrowDown />
-        </span>
+        <div className={styles['select-arrow']}></div>
       </div>
-      {errors && <span className={styles['error-container']}>{errors[name]?.message?.toString()}</span>}
+      {errors && errors[name] && (
+        <span className={styles['error-container']}>
+          {errors[name]?.message?.toString()}
+        </span>
+      )}
     </div>
   );
 };
